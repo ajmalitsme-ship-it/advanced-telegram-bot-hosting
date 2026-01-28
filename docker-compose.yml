@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: bot_hosting_platform
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./hosted_bots:/app/hosted_bots
+      - ./bot_hosting.db:/app/bot_hosting.db
+    environment:
+      - PYTHONUNBUFFERED=1
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMIN_IDS=${ADMIN_IDS}
+    privileged: true
