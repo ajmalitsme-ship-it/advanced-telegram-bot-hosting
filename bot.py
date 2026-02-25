@@ -34,9 +34,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ⚙️ BOT CONFIGURATION - এখানে তোমার info দাও
-BOT_TOKEN = os.getenv("BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
-ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_IDS", "YOUR_ADMIN_ID").split(",")]
-CHANNEL_ID = "@gadgetpremiumzone"
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8214091166:AAEi8sAp-K7gMzix7ralzsVFpn8hJPjJK5U")
+ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_IDS", "8525952693").split(",")]
+CHANNEL_ID = "-1003559364122"
 PRIVATE_CHANNEL = "https://t.me/+HSqmdVuHFr84MzRl"
 
 # Database setup
