@@ -43,7 +43,16 @@ PRIVATE_CHANNEL = "https://t.me/+HSqmdVuHFr84MzRl"
 DB_PATH = "bot_hosting.db"
 
 # Docker client
-docker_client = docker.from_env()
+docker_client = None
+if os.environ.get("LOCAL_DEV"):  # only runs Docker locally
+    try:
+        import docker
+        docker_client = docker.from_env()
+        print("Docker client initialized locally.")
+    except Exception as e:
+        print("Docker not available:", e)
+else:
+    print("Skipping Docker - running in cloud environment.")
 
 # States for conversation
 UPLOAD_BOT, INSTALL_MODULE = range(2)
