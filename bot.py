@@ -778,8 +778,15 @@ def add_advanced_handlers(application):
     application.add_handler(CommandHandler("grant_premium", grant_premium))
     application.add_handler(CommandHandler("revoke_premium", revoke_premium))
 
-print("✅ Bot running...")
-    application.run_polling()
+def main():
+    print("🚀 Starting Bot Hosting Platform...")
 
-if __name__ == "__main__":
-    main()
+    application = Application.builder().token(BOT_TOKEN).build()
+
+    # Add handlers here...
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("menu", menu))
+    # ...other handlers
+
+    print("✅ Bot started!")
+    application.run_polling(allowed_updates=Update.ALL_TYPES)  # <-- NO extra indentation
